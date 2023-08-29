@@ -1,0 +1,44 @@
+@mixin main-color {
+  color: #ff7200;
+}
+
+.flex-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-center2x {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-btw {
+  justify-content: space-between;
+}
+
+.clearfix{
+  zoom:1;
+}
+.clearfix:after,.clearfix:before{
+  content:"";
+  display:table;
+}
+.clearfix:after{
+  clear:both;
+  visibility:hidden;
+  font-size:0;
+  height:0;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  font-family: PingFang-SC-Medium;
+}
+
