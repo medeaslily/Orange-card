@@ -1,10 +1,14 @@
 <template>
   <div class="card">
-    <img class="card__img" :src="imgSrc" alt="">
-    <div class="card__text-block">
-      <p class="card__title">{{ title }}</p>
-      <p class="card__time">{{ time }}</p>
-    </div>
+    <a href="javascript:;">
+      <el-image class="card__img"
+                :src="imgSrc"
+                :fit="'fill'"></el-image>
+      <div class="card__text-block">
+        <p class="card__title">{{ title }}</p>
+        <p class="card__time">{{ time }}</p>
+      </div>
+    </a>
   </div>
 </template>
 <script>
@@ -28,6 +32,12 @@ export default {
 .card__text-block {
   height: 110px;
   margin-left: 20px;
+}
+
+.card__img {
+  display: block;
+  width: 386px;
+  height: 220px;
 }
 
 .card__title {

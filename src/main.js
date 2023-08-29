@@ -5,9 +5,12 @@ import router from './router'
 import Component from '@/components'
 import './assets/css/reset.css'
 import './assets/css/public.scss'
+import request from '@/utils/request'
 
 Vue.config.productionTip = false
 Vue.use(Component)
+Vue.prototype.$req = request
+
 
 new Vue({
   router,

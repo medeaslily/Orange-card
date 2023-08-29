@@ -6,35 +6,13 @@
     </div>
     <div class="wrapper news__container">
       <el-row class="news__cards" :gutter="20">
-        <el-col class="news__card" :span="8">
-          <com-card :img-src="imgSrc"
-                    :title="title"
-                    :time="time"></com-card>
-        </el-col>
-        <el-col class="news__card" :span="8">
-          <com-card :img-src="imgSrc"
-                    :title="title"
-                    :time="time"></com-card>
-        </el-col>
-        <el-col class="news__card" :span="8">
-          <com-card :img-src="imgSrc"
-                    :title="title"
-                    :time="time"></com-card>
-        </el-col>
-        <el-col class="news__card" :span="8">
-          <com-card :img-src="imgSrc"
-                    :title="title"
-                    :time="time"></com-card>
-        </el-col>
-        <el-col class="news__card" :span="8">
-          <com-card :img-src="imgSrc"
-                    :title="title"
-                    :time="time"></com-card>
-        </el-col>
-        <el-col class="news__card" :span="8">
-          <com-card :img-src="imgSrc"
-                    :title="title"
-                    :time="time"></com-card>
+        <el-col class="news__card"
+                :span="8"
+                v-for="(item,id) in newsList"
+                :key="id">
+          <com-card :img-src="item.cover"
+                    :title="item.title"
+                    :time="item.updatedAt"></com-card>
         </el-col>
       </el-row>
       <el-pagination
@@ -42,7 +20,8 @@
           layout="prev, pager, next"
           :current-page="currentPage"
           @current-change="currentChange"
-          :total="50">
+          :page-size="pageSize"
+          :total="total">
       </el-pagination>
     </div>
   </div>
@@ -56,12 +35,29 @@ export default {
       imgSrc: require('../../assets/img/news/card1.jpg'),
       title: '笃行，致远，致我们不平凡的2019！',
       time: '2018-05-01',
-      currentPage: 1
+      pageSize: 9,
+      currentPage: 1,
+      total: 36,
+      newsList: []
     }
   },
+  mounted() {
+    this.getNewsList(this.currentPage)
+  },
   methods: {
-    currentChange(val) {
-      console.log(`第 ${val} 页`)
+    currentChange(cur) {
+      this.currentPage = cur
+      this.getNewsList(cur)
+    },
+    getNewsList(page) {
+      this.$req('/newslist', 'get', {
+        page,
+        pageSize: this.pageSize
+      }).then((res) => {
+        console.log(res)
+        this.newsList = res.data
+        this.total = res.pagination.total
+      })
     }
   },
 }
@@ -87,6 +83,7 @@ h2 {
   padding-top: 44px;
   font-size: 40px;
   line-height: 64px;
+  font-weight: 400;
 }
 
 .news__banner-des {
@@ -97,19 +94,16 @@ h2 {
 // 新闻内容
 
 .news__container {
-  margin-top: 22px;
+  padding-top: 82px;
   padding-bottom: 62px;
 }
 
 .news__card {
-  margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 // 分页器
 
-.news__pagination {
-  padding-top: 60px;
-}
 
 // 定义页码按钮 选中以及当前分页对应页码按钮的样式
 
