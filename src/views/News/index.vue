@@ -7,34 +7,34 @@
     <div class="wrapper news__container">
       <el-row class="news__cards" :gutter="20">
         <el-col class="news__card" :span="8">
-          <BaseCard :img-src="imgSrc"
+          <com-card :img-src="imgSrc"
                     :title="title"
-                    :time="time"></BaseCard>
+                    :time="time"></com-card>
         </el-col>
         <el-col class="news__card" :span="8">
-          <BaseCard :img-src="imgSrc"
+          <com-card :img-src="imgSrc"
                     :title="title"
-                    :time="time"></BaseCard>
+                    :time="time"></com-card>
         </el-col>
         <el-col class="news__card" :span="8">
-          <BaseCard :img-src="imgSrc"
+          <com-card :img-src="imgSrc"
                     :title="title"
-                    :time="time"></BaseCard>
+                    :time="time"></com-card>
         </el-col>
         <el-col class="news__card" :span="8">
-          <BaseCard :img-src="imgSrc"
+          <com-card :img-src="imgSrc"
                     :title="title"
-                    :time="time"></BaseCard>
+                    :time="time"></com-card>
         </el-col>
         <el-col class="news__card" :span="8">
-          <BaseCard :img-src="imgSrc"
+          <com-card :img-src="imgSrc"
                     :title="title"
-                    :time="time"></BaseCard>
+                    :time="time"></com-card>
         </el-col>
         <el-col class="news__card" :span="8">
-          <BaseCard :img-src="imgSrc"
+          <com-card :img-src="imgSrc"
                     :title="title"
-                    :time="time"></BaseCard>
+                    :time="time"></com-card>
         </el-col>
       </el-row>
       <el-pagination
@@ -48,14 +48,12 @@
   </div>
 </template>
 <script>
-import BaseCard from "@/components/BaseCard.vue";
 
 export default {
-  name: 'NewsView',
-  components: {BaseCard},
+  name: 'news-page',
   data() {
     return {
-      imgSrc: require('../assets/img/news/card1.jpg'),
+      imgSrc: require('../../assets/img/news/card1.jpg'),
       title: '笃行，致远，致我们不平凡的2019！',
       time: '2018-05-01',
       currentPage: 1
@@ -80,7 +78,7 @@ export default {
 
 .news__banner {
   height: 200px;
-  background: url(../assets/img/news/banner.png) no-repeat center/cover;
+  background: url(../../assets/img/news/banner.png) no-repeat center/cover;
   text-align: center;
   color: #fff;
 }

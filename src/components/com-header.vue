@@ -27,7 +27,7 @@
           <router-link to="/support">橙权益</router-link>
         </el-menu-item>
         <el-menu-item index="4">
-          <router-link to="/demo">行业案例</router-link>
+          <router-link to="/case">行业案例</router-link>
         </el-menu-item>
         <el-menu-item index="5">
           <router-link to="/news">新闻动态</router-link>
@@ -41,7 +41,7 @@
 </template>
 <script>
 export default {
-  name: 'BaseHeader',
+  name: 'com-header',
   data() {
     return {
       activeIndex: '1'

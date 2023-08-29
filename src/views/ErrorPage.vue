@@ -1,10 +1,11 @@
 <template>
-  <div class="support">
+  <div class="error">
+    <div>404页面</div>
   </div>
 </template>
 <script>
 export default {
-  name: 'SupportView'
+  name: 'error-page'
 }
 </script>
 <style>

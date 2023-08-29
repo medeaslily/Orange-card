@@ -9,7 +9,7 @@
 </template>
 <script>
 export default {
-  name: 'BaseCard',
+  name: 'com-card',
   props: {
     imgSrc: {type: String},
     title: {type: String},

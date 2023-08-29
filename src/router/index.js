@@ -1,35 +1,29 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  // 主页
   {
     path: '/',
-    name: 'home',
-    component: HomeView,
+    component: () => import('@/views/Layout.vue'),
+    children: [
+      { path: '/', redirect: '/index' },
+      // 主页
+      { path: '/index', component: () => import('@/views/Home') },
+      // 关于我们
+      { path: '/about', component: () => import('@/views/About') },
+      // 新闻
+      { path: '/news', component: () => import('@/views/News') },
+      // 展示样品
+      { path: '/case',component: () => import('@/views/Case') },
+      // 支持
+      { path: '/support', component: () => import('@/views/Support') }
+    ]
   },
-  // 关于我们
   {
-    path: '/about',
-    component: () => import('../views/AboutView.vue')
-  },
-  // 新闻
-  {
-    path: '/news',
-    component: () => import('../views/NewsView.vue')
-  },
-  // 展示样品
-  {
-    path: '/demo',
-    component: () => import('../views/DemoView.vue')
-  },
-  // 支持
-  {
-    path: '/support',
-    component: () => import('../views/SupportView.vue')
+    path: '*',
+    component: () => import('@/views/ErrorPage')
   }
 ]
 

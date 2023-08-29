@@ -56,7 +56,7 @@
 </template>
 <script>
 export default {
-  name: 'BaseFooter'
+  name: 'com-footer'
 }
 </script>
 <style scoped>
