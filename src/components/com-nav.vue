@@ -1,23 +1,23 @@
 <template>
-  <div class="nav">
+  <div :class="[nav, { special_a: isIndex }]">
     <ul class="flex-box">
       <li>
         <router-link to="/index">首页</router-link>
       </li>
       <li class="pull-list">
-        <router-link class="icon icon-arrow-down ml6" to="/index">橙品牌</router-link>
+        <a class="icon icon-arrow-down ml6" to="/">橙品牌</a>
         <ul class="pull-list-item">
           <li>
-            <router-link to="/index">橙品牌</router-link>
+            <a href="#">橙品牌</a>
           </li>
           <li>
-            <router-link to="/index">橙品牌</router-link>
+            <a href="#">橙品牌</a>
           </li>
           <li>
-            <router-link to="/index">橙品牌</router-link>
+            <a href="#">橙品牌</a>
           </li>
           <li>
-            <router-link to="/index">橙品牌</router-link>
+            <a href="#">橙品牌</a>
           </li>
         </ul>
       </li>
@@ -38,7 +38,20 @@
 </template>
 <script>
 export default {
-  name: 'nav-page'
+  name: 'nav-page',
+  props: {
+    // 是否是主页路由
+    isIndex: {
+      type: Boolean,
+      default: true
+    },
+  },
+  data() {
+    return {
+      navIndex: 'nav-index',
+      nav: 'nav'
+    }
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -57,6 +70,20 @@ export default {
 }
 
 .nav a:hover {
+  color: $theme-color;
+}
+
+// 当路由定位为主页时，a标签的颜色
+
+.nav,.special_a a {
+  color: #c8c8c8;
+}
+
+.nav,.special_a a:hover:not(.router-link-active) {
+  color: #fff;
+}
+
+.nav .router-link-active {
   color: $theme-color;
 }
 
