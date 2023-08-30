@@ -3,8 +3,9 @@ import App from './App.vue'
 import './plugins/element.js'
 import router from './router'
 import Component from '@/components'
-import './assets/css/reset.css'
-import './assets/css/public.scss'
+import '@/assets/style/reset.css'
+import '@/assets/style/public.scss'
+import '@/assets/icons/iconfont.css'
 import request from '@/utils/request'
 
 Vue.config.productionTip = false

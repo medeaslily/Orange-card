@@ -143,7 +143,7 @@ footer {
 }
 
 .footer__copy {
-  padding-top: 20px;
+  padding-top: 18px;
   padding-bottom: 20px;
   font-size: 14px;
   color: #7e8088;

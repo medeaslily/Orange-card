@@ -4,7 +4,7 @@
       <h2>橙券新闻动态</h2>
       <p class="news__banner-des">新闻动态抢先看，从能力输出到技术赋能，橙券从未放缓脚步，只为与您见证橙券成长的每一步！</p>
     </div>
-    <div class="wrapper news__container">
+    <div class="w1200 news__container">
       <el-row class="news__cards" :gutter="20">
         <el-col class="news__card"
                 :span="8"
@@ -67,6 +67,7 @@ export default {
 // 新闻整体
 
 .news {
+  margin-top: 56px;
   background-color: #fcfcfc;
 }
 
