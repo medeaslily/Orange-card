@@ -75,11 +75,11 @@ export default {
 
 // 当路由定位为主页时，a标签的颜色
 
-.nav,.special_a a {
+.special_a a {
   color: #c8c8c8;
 }
 
-.nav,.special_a a:hover:not(.router-link-active) {
+.special_a a:hover:not(.router-link-active,.pull-list a) {
   color: #fff;
 }
 

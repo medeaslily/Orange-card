@@ -18,14 +18,16 @@
   justify-content: space-between;
 }
 
-.clearfix{
+.clearfix {
   zoom:1;
 }
-.clearfix:after,.clearfix:before{
+
+.clearfix:after,.clearfix:before {
   content:"";
   display:table;
 }
-.clearfix:after{
+
+.clearfix:after {
   clear:both;
   visibility:hidden;
   font-size:0;

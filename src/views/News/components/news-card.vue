@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-  name: 'com-card',
+  name: 'news-card',
   props: {
     imgSrc: {type: String},
     title: {type: String},

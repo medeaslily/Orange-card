@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header :class="[{header: true}, {bgc_init: isIndex}]">
     <div class="header__bar  flex-box flex-btw w1200">
       <h1>
         <span class="hidden">橙券</span>
@@ -44,6 +44,10 @@ export default {
   z-index: 9999;
   width: 100%;
   background-color: #fff;
+}
+
+.bgc_init {
+  background-color: initial;
 }
 
 .header__bar {

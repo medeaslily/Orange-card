@@ -1,20 +1,23 @@
 <template>
   <div class="news">
+    <!-- 横幅   -->
     <div class="news__banner">
       <h2>橙券新闻动态</h2>
       <p class="news__banner-des">新闻动态抢先看，从能力输出到技术赋能，橙券从未放缓脚步，只为与您见证橙券成长的每一步！</p>
     </div>
+    <!--  新闻主体  -->
     <div class="w1200 news__container">
       <el-row class="news__cards" :gutter="20">
         <el-col class="news__card"
                 :span="8"
                 v-for="(item,id) in newsList"
                 :key="id">
-          <com-card :img-src="item.cover"
+          <news-card :img-src="item.cover"
                     :title="item.title"
-                    :time="item.updatedAt"></com-card>
+                    :time="item.updatedAt"></news-card>
         </el-col>
       </el-row>
+      <!--  分页器   -->
       <el-pagination
           class="news__pagination flex-box flex-center2x"
           layout="prev, pager, next"
@@ -28,8 +31,11 @@
 </template>
 <script>
 
+import NewsCard from "@/views/News/components/news-card.vue";
+
 export default {
   name: 'news-page',
+  components: {NewsCard},
   data() {
     return {
       imgSrc: require('../../assets/img/news/card1.jpg'),
