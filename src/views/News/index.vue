@@ -6,7 +6,7 @@
       <p class="news__banner-des">新闻动态抢先看，从能力输出到技术赋能，橙券从未放缓脚步，只为与您见证橙券成长的每一步！</p>
     </div>
     <!--  新闻主体  -->
-    <div class="w1200 news__container">
+    <div class="w1200 news__content">
       <el-row class="news__cards" :gutter="20">
         <el-col class="news__card"
                 :span="8"
@@ -100,7 +100,7 @@ h2 {
 
 // 新闻内容
 
-.news__container {
+.news__content {
   padding-top: 82px;
   padding-bottom: 62px;
 }
@@ -121,36 +121,39 @@ h2 {
   border-radius: 50%;
 }
 
-::v-deep .el-pager li {
-  height: 35px;
-  font-size: 16px;
-  line-height: 35px;
-  background-color: initial;
-  color: #666;
+::v-deep {
+  .el-pager {
+    li {
+      height: 35px;
+      font-size: 16px;
+      line-height: 35px;
+      background-color: initial;
+      color: #666;
+
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+
+      &:hover, &.active {
+        @include pagination-active;
+      }
+    }
+  }
+
+  .el-pagination {
+    button {
+      background-color: initial;
+    }
+
+    .el-icon {
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      color: #fcfcfc;
+      border-radius: 50%;
+      background-color: #dedede;
+    }
+  }
 }
 
-::v-deep .el-pager li:not(:last-child) {
-  margin-right: 32px;
-}
-
-::v-deep .el-pager li:hover {
-  @include pagination-active;
-}
-
-::v-deep .el-pager li.active {
-  @include pagination-active;
-}
-
-::v-deep .el-pagination button {
-  background-color: initial;
-}
-
-::v-deep .el-pagination .el-icon {
-  width: 22px;
-  height: 22px;
-  line-height: 22px;
-  color: #fcfcfc;
-  border-radius: 50%;
-  background-color: #dedede;
-}
 </style>

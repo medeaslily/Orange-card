@@ -34,9 +34,25 @@
   height:0;
 }
 
-.w1200 {
+.w1200,.w1160 {
   width: 1200px;
   margin: 0 auto;
   font-family: PingFang-SC-Medium;
+}
+
+.w1160 {
+  width: 1160px;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+}
+
+.dis_hid {
+  display: none;
 }
 

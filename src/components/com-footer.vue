@@ -3,7 +3,7 @@
     <div class="footer__content flex-box">
       <div class="connect">
         <div class="clearfix">
-          <img class="fl pr6" src="../assets/img/footer/connect.png" alt="!" width="43" height="43">
+          <div class="connect__icon fl pr6"></div>
           <p class="connect__phone-number">400-096-0828</p>
           <p class="connect__phone-des">7*24小时客服为您服务</p>
         </div>
@@ -95,6 +95,13 @@ footer {
 .connect {
   padding-right: 84px;
   border-right: 1px solid #4c4f5f;
+}
+
+.connect__icon {
+  overflow: hidden;
+  width: 43px;
+  height: 43px;
+  background: url('@/assets/img/footer/connect-icon.png') no-repeat left/86%;
 }
 
 .connect__phone-number {
