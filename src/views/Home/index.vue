@@ -1,9 +1,8 @@
 <template>
   <div class="home">
-    <!--   横幅   -->
-    <div class="pos-rel">
-      <el-carousel class="home__banner"
-                   height="680px"
+    <!--   顶部横幅   -->
+    <div class="home__banner">
+      <el-carousel height="680px"
                    :loop="true"
                    :interval="2000"
                    indicator-position="none">
@@ -15,23 +14,24 @@
       <HomeSlider></HomeSlider>
     </div>
     <!--  主页主体  -->
-    <div class="home__content">
       <!--  橙品牌    -->
       <HomeBrand></HomeBrand>
       <!--   橙科技   -->
       <HomeEnable></HomeEnable>
+      <!--   底部横幅   -->
+      <HomeBottomBanner></HomeBottomBanner>
     </div>
-  </div>
 </template>
 <script>
 
 import HomeSlider from "@/views/Home/components/HomeSlider.vue";
 import HomeBrand from "@/views/Home/components/HomeBrand.vue";
 import HomeEnable from "@/views/Home/components/HomeEnable.vue";
+import HomeBottomBanner from "@/views/Home/components/HomeBottomBanner.vue";
 
 export default {
   name: 'home-page',
-  components: {HomeEnable, HomeBrand, HomeSlider},
+  components: {HomeBottomBanner, HomeEnable, HomeBrand, HomeSlider},
   data() {
     return {
       bannerSrcList: []
@@ -55,20 +55,14 @@ export default {
 </script>
 <style lang="scss" scoped>
 // 轮播图
+.home__banner {
+  @include pos-rel;
+}
+
 .el-carousel__item {
   width: 100%;
   height: 100%;
-  @include pad-bgc;
-}
-
-.home__brand {
-  background-color: #fff;
-}
-
-.home__brand_cover {
-  width: 391px;
-  height: 86px;
-  background-image: url('@/assets/img/home/brand-cover.png');
+  @include pad-bgi;
 }
 
 ::v-deep .el-carousel__arrow {

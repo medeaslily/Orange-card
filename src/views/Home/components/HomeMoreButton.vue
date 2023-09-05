@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: 'HomeLearnButton',
+  name: 'HomeMoreButton',
   props: {
     color: {
       type: String,

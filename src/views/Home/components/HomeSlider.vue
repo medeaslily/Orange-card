@@ -2,16 +2,16 @@
   <div class="slider">
     <img src="@/assets/img/home/slider-icon.png" alt="icon" width="76" height="70">
     <h2>橙券，是权益营销方案提供商，为实现品牌-市场-用户的紧密互联提供强有力的智慧支持。</h2>
-    <HomeLearnButton></HomeLearnButton>
+    <HomeMoreButton></HomeMoreButton>
   </div>
 </template>
 <script>
 
-import HomeLearnButton from "@/views/Home/components/HomeLearnButton.vue";
+import HomeMoreButton from "@/views/Home/components/HomeMoreButton.vue";
 
 export default {
   name: 'HomeSlider',
-  components: {HomeLearnButton}
+  components: {HomeMoreButton}
 }
 </script>
 <style lang="scss" scoped>

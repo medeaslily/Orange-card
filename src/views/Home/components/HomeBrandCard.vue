@@ -6,17 +6,17 @@
            :style="{ 'background-image': `url(${ card.iconSrc })` }"></div>
       <p class="card__title">{{ card.title }}</p>
       <p class="card__des">{{ card.des }}</p>
-      <HomeLearnButton class="card__button"
-                       :color="'white'"></HomeLearnButton>
+      <HomeMoreButton class="card__button"
+                       :color="'white'"></HomeMoreButton>
     </div>
   </div>
 </template>
 <script>
-import HomeLearnButton from "@/views/Home/components/HomeLearnButton.vue";
+import HomeMoreButton from "@/views/Home/components/HomeMoreButton.vue";
 
 export default {
   name: 'HomeBrandCard',
-  components: {HomeLearnButton},
+  components: {HomeMoreButton},
   props: {
     card: {
       type: Object,

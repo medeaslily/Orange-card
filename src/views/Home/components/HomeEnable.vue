@@ -92,7 +92,7 @@ export default {
   padding-top: 82px;
   padding-bottom: 144px;
   background-image: url('@/assets/img/home/enable-bgc.png');
-  @include pad-bgc;
+  @include pad-bgi;
 }
 
 .enable__cover {
@@ -100,7 +100,7 @@ export default {
   width: 302px;
   height: 78px;
   background-image: url('@/assets/img/home/enable-cover.png');
-  @include pad-bgc;
+  @include pad-bgi;
 }
 
 .enable__tabs {

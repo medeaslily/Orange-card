@@ -68,7 +68,7 @@ export default {
 
 .card__cover {
   @extend %hor-center;
-  @include pad-bgc;
+  @include pad-bgi;
   width: 218px;
   height: 55px;
 }
