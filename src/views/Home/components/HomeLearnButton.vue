@@ -8,19 +8,10 @@ export default {
     color: {
       type: String,
       default: ''
-    },
-    show: {
-      type: Boolean,
-      default: true
     }
   },
   mounted() {
     this.switchStyle()
-  },
-  data() {
-    return {
-      button: true
-    }
   },
   methods: {
     switchStyle () {
@@ -29,12 +20,6 @@ export default {
 
       if (supportColor.includes(this.color)) {
         this.$el.classList.add(`button-${this.color}`)
-      }
-
-      if (this.show) {
-        this.$el.classList.add(`button-show`)
-      } else {
-        this.$el.classList.add(`button-hid`)
       }
     }
   },
@@ -69,13 +54,5 @@ export default {
 .button-white {
   border: 1px solid #fff;
   color: #fff;
-}
-
-.button-show {
-  display: block;
-}
-
-.button-hid {
-  display: none;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="brand w1160">
+  <div class="brand">
     <div class="brand__cover"></div>
     <ul class="brand__cards  flex-box flex-btw">
       <li v-for="(item, idx) in cardList"
@@ -49,6 +49,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .brand {
+  @include w1160;
   padding-top: 240px;
   padding-bottom: 148px;
 }

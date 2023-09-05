@@ -15,7 +15,7 @@
       <HomeSlider></HomeSlider>
     </div>
     <!--  主页主体  -->
-    <div class="home__content w1160">
+    <div class="home__content">
       <!--  橙品牌    -->
       <HomeBrand></HomeBrand>
       <!--   橙科技   -->
@@ -27,10 +27,11 @@
 
 import HomeSlider from "@/views/Home/components/HomeSlider.vue";
 import HomeBrand from "@/views/Home/components/HomeBrand.vue";
+import HomeEnable from "@/views/Home/components/HomeEnable.vue";
 
 export default {
   name: 'home-page',
-  components: {HomeBrand, HomeSlider},
+  components: {HomeEnable, HomeBrand, HomeSlider},
   data() {
     return {
       bannerSrcList: []
@@ -53,29 +54,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-//.home-banner::before,
-//.home-banner::after {
-//  content: '';
-//  position: absolute;
-//  display: inline-block;
-//  z-index: 2;
-//  bottom: 0;
-//  left: 0;
-//  right: 0;
-//  margin: 0 auto;
-//  width: 49px;
-//  height: 3px;
-//  background-color: #838a94;
-//  border-radius: 2px;
-//}
-
 // 轮播图
 .el-carousel__item {
   width: 100%;
   height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include pad-bgc;
 }
 
 .home__brand {

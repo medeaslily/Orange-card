@@ -37,7 +37,6 @@
 .w1200,.w1160 {
   width: 1200px;
   margin: 0 auto;
-  font-family: PingFang-SC-Medium;
 }
 
 .w1160 {
@@ -54,5 +53,11 @@
 
 .dis_hid {
   display: none;
+}
+
+.Pad-bgc {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 

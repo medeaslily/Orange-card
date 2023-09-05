@@ -1,8 +1,9 @@
 <template>
-  <header :class="[{header: true}, {bgc_init: isIndex}]">
-    <div class="header__bar  flex-box flex-btw w1200">
+  <header class="header"
+          :class="{ bgc_init: isIndex }">
+    <div class="header__bar">
       <h1>
-        <span class="hidden">橙券</span>
+        <span>橙券</span>
         <a href="#" class="logo">
           <img :src="isIndex ? logoWhite : logo" alt="logo" width="92" height="36">
         </a>
@@ -33,10 +34,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.hidden {
-  display: none;
-}
-
 .header {
   position: fixed;
   top: 0;
@@ -51,8 +48,14 @@ export default {
 }
 
 .header__bar {
+  @include flex-btw;
+  @include w1048;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+
+  & h1>span {
+    display: none;
+  }
 }
 </style>

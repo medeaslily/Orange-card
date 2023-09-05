@@ -1,40 +1,38 @@
 <template>
-  <div :class="[nav, { special_a: isIndex }]">
-    <ul class="flex-box">
-      <li>
-        <router-link to="/index">首页</router-link>
-      </li>
-      <li class="pull-list">
-        <a class="icon icon-arrow-down ml6" to="/">橙品牌</a>
-        <ul class="pull-list-item">
-          <li>
-            <a href="#">橙品牌</a>
-          </li>
-          <li>
-            <a href="#">橙品牌</a>
-          </li>
-          <li>
-            <a href="#">橙品牌</a>
-          </li>
-          <li>
-            <a href="#">橙品牌</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <router-link to="/support">橙权益</router-link>
-      </li>
-      <li>
-        <router-link to="/case">行业案例</router-link>
-      </li>
-      <li>
-        <router-link to="/news">新闻动态</router-link>
-      </li>
-      <li>
-        <router-link to="/about">关于我们</router-link>
-      </li>
-    </ul>
-  </div>
+  <ul class="nav" :class="{ special_a: isIndex }">
+    <li>
+      <router-link to="/index">首页</router-link>
+    </li>
+    <li class="pull-list">
+      <a class="icon icon-arrow-down ml6" to="/">橙品牌</a>
+      <ul class="pull-list-item">
+        <li>
+          <a href="#">橙品牌</a>
+        </li>
+        <li>
+          <a href="#">橙品牌</a>
+        </li>
+        <li>
+          <a href="#">橙品牌</a>
+        </li>
+        <li>
+          <a href="#">橙品牌</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <router-link to="/support">橙权益</router-link>
+    </li>
+    <li>
+      <router-link to="/case">行业案例</router-link>
+    </li>
+    <li>
+      <router-link to="/news">新闻动态</router-link>
+    </li>
+    <li>
+      <router-link to="/about">关于我们</router-link>
+    </li>
+  </ul>
 </template>
 <script>
 export default {
@@ -56,39 +54,51 @@ export default {
 </script>
 <style lang="scss" scoped>
 .nav {
-  margin-right: 132px;
+  display: flex;
+  // 设置导航一级元素右边距，不包括最后一个一级元素和所有二级元素
+  li:not(:last-child,.pull-list li) {
+    margin-right: 46px;
+  }
+
+  a {
+    font-size: 16px;
+    line-height: 36px;
+    color: #999;
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  .router-link-active {
+    color: $theme-color;
+  }
 }
 
-.nav li:not(:last-child,.pull-list li) {
-  margin-right: 46px;
-}
+// route为主页时nav的样式
 
-.nav a {
-  font-size: 16px;
-  line-height: 36px;
-  color: #999;
-}
+.special_a {
+  a {
+    color: #c8c8c8;
 
-.nav a:hover {
-  color: $theme-color;
-}
-
-// 当路由定位为主页时，a标签的颜色
-
-.special_a a {
-  color: #c8c8c8;
-}
-
-.special_a a:hover:not(.router-link-active,.pull-list a) {
-  color: #fff;
-}
-
-.nav .router-link-active {
-  color: $theme-color;
+    &:hover:not(.router-link-active,.pull-list a) {
+      color: #fff;
+    }
+  }
 }
 
 .pull-list {
   position: relative;
+
+  &:hover .pull-list-item {
+    visibility: visible;
+    max-height: 500px;
+  }
+
+  &:hover .icon-arrow-down::after {
+    display: inline-block;
+    transform: rotate(180deg);
+  }
 }
 
 .icon-arrow-down::after {
@@ -99,7 +109,6 @@ export default {
 }
 
 .pull-list-item {
-  // 高度回收时剪裁超出的元素高度
   overflow: hidden;
   position: absolute;
   visibility: hidden;
@@ -111,21 +120,11 @@ export default {
   text-align: center;
   background-color: rgba(0, 0, 0, .3);
   border-radius: 4px;
-  // 动画过渡
   transition: .5s;
+
+  a {
+    color: #fff;
+  }
 }
 
-.pull-list-item a {
-  color: #fff;
-}
-
-.pull-list:hover .pull-list-item {
-  visibility: visible;
-  max-height: 500px;
-}
-
-.pull-list:hover .icon-arrow-down::after {
-  display: inline-block;
-  transform: rotate(180deg)
-}
 </style>

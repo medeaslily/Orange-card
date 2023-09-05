@@ -6,7 +6,8 @@
            :style="{ 'background-image': `url(${ card.iconSrc })` }"></div>
       <p class="card__title">{{ card.title }}</p>
       <p class="card__des">{{ card.des }}</p>
-      <HomeLearnButton :show="false" :color="'white'"></HomeLearnButton>
+      <HomeLearnButton class="card__button"
+                       :color="'white'"></HomeLearnButton>
     </div>
   </div>
 </template>
@@ -38,7 +39,7 @@ export default {
     background-color: rgb(255, 255, 255, 0);
     padding: 8px 7px;
     // *从容器边框向内展开模糊
-    box-shadow: 0 0 8px #ccc inset;
+    box-shadow: 8px 8px 8px #ccc inset;
   }
 
   &:hover .card-mask {
@@ -46,6 +47,13 @@ export default {
     border: 1px solid #fff;
   }
 
+  &:hover .card__des {
+    color: #fff;
+  }
+
+  &:hover .card__button {
+    display: block;
+  }
 }
 
 .card-mask {
@@ -77,5 +85,9 @@ export default {
   font-size: 16px;
   line-height: 16px;
   color: #dadada;
+}
+
+.card__button {
+  display: none;
 }
 </style>

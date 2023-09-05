@@ -6,7 +6,7 @@
       <p class="news__banner-des">新闻动态抢先看，从能力输出到技术赋能，橙券从未放缓脚步，只为与您见证橙券成长的每一步！</p>
     </div>
     <!--  新闻主体  -->
-    <div class="w1200 news__content">
+    <div class="news__content">
       <el-row class="news__cards" :gutter="20">
         <el-col class="news__card"
                 :span="8"
@@ -73,7 +73,7 @@ export default {
 // 新闻整体
 
 .news {
-  margin-top: 56px;
+  margin-top: 80px;
   background-color: #fcfcfc;
 }
 
@@ -101,6 +101,7 @@ h2 {
 // 新闻内容
 
 .news__content {
+  @include w1200;
   padding-top: 82px;
   padding-bottom: 62px;
 }
