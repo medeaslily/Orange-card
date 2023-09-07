@@ -7,10 +7,13 @@ import '@/assets/style/reset.css'
 import '@/assets/style/public.scss'
 import '@/assets/icons/iconfont.css'
 import request from '@/utils/request'
+import api from '@/api'
 
 Vue.config.productionTip = false
 Vue.use(Component)
 Vue.prototype.$req = request
+Vue.prototype.$api = api
+Vue.prototype.$bus = new Vue()
 
 
 new Vue({

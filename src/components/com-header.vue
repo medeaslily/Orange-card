@@ -24,6 +24,13 @@ export default {
       }
     }
   },
+  mounted() {
+    if(this.$route.path !== '/index') {
+      this.isIndex = false
+    } else {
+      this.isIndex = true
+    }
+  },
   data() {
     return {
       isIndex: true,
@@ -49,7 +56,7 @@ export default {
 
 .header__bar {
   @include flex-btw;
-  @include w1048;
+  @include w1160;
   align-items: center;
   padding-top: 22px;
   padding-bottom: 22px;

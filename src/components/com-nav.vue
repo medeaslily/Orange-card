@@ -55,6 +55,8 @@ export default {
 <style lang="scss" scoped>
 .nav {
   display: flex;
+  margin-right: 132px;
+
   // 设置导航一级元素右边距，不包括最后一个一级元素和所有二级元素
   li:not(:last-child,.pull-list li) {
     margin-right: 46px;

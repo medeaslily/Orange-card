@@ -1,22 +1,18 @@
 <template>
   <div class="news">
     <!-- 横幅   -->
-    <div class="news__banner">
-      <h2>橙券新闻动态</h2>
-      <p class="news__banner-des">新闻动态抢先看，从能力输出到技术赋能，橙券从未放缓脚步，只为与您见证橙券成长的每一步！</p>
-    </div>
+    <NewsBanner></NewsBanner>
     <!--  新闻主体  -->
     <div class="news__content">
-      <el-row class="news__cards" :gutter="20">
-        <el-col class="news__card"
-                :span="8"
-                v-for="(item,id) in newsList"
-                :key="id">
-          <news-card :img-src="item.cover"
-                    :title="item.title"
-                    :time="item.updatedAt"></news-card>
-        </el-col>
-      </el-row>
+    <!--  新闻卡列表    -->
+      <ul class="news__cards">
+        <NewsCard class="news__card" v-for="(item,id) in newsList"
+                  :key="id"
+                  :img-src="item.cover"
+                  :title="item.title"
+                  :time="item.updatedAt"
+                  @toArticle="toArticle(item._id)"></NewsCard>
+      </ul>
       <!--  分页器   -->
       <el-pagination
           class="news__pagination flex-box flex-center2x"
@@ -30,17 +26,14 @@
   </div>
 </template>
 <script>
-
-import NewsCard from "@/views/News/components/news-card.vue";
+import NewsCard from "@/views/News/components/NewsCard.vue";
+import NewsBanner from "@/views/News/components/NewsBanner.vue";
 
 export default {
   name: 'news-page',
-  components: {NewsCard},
+  components: {NewsBanner, NewsCard},
   data() {
     return {
-      imgSrc: require('../../assets/img/news/card1.jpg'),
-      title: '笃行，致远，致我们不平凡的2019！',
-      time: '2018-05-01',
       pageSize: 9,
       currentPage: 1,
       total: 36,
@@ -60,50 +53,37 @@ export default {
         page,
         pageSize: this.pageSize
       }).then((res) => {
-        console.log(res)
         this.newsList = res.data
         this.total = res.pagination.total
       })
+    },
+    toArticle(id) {
+      this.$router.push({ name: 'article', params: { id } })
     }
   },
 }
 </script>
 <style lang="scss" scoped>
-
 // 新闻整体
 
 .news {
-  margin-top: 80px;
+  margin-top: $header-height;
   background-color: #fcfcfc;
 }
 
-// 新闻横幅
-
-.news__banner {
-  height: 200px;
-  background: url(../../assets/img/news/banner.png) no-repeat center/cover;
-  text-align: center;
-  color: #fff;
-}
-
-h2 {
-  padding-top: 44px;
-  font-size: 40px;
-  line-height: 64px;
-  font-weight: 400;
-}
-
-.news__banner-des {
-  font-size: 20px;
-  line-height: 34px;
-}
-
-// 新闻内容
+// 新闻主体
 
 .news__content {
-  @include w1200;
   padding-top: 82px;
   padding-bottom: 62px;
+  background-color: #fcfcfc;
+}
+
+// 新闻卡片列表
+
+.news__cards {
+  @include w1200;
+  @include flex-btw;
 }
 
 .news__card {
@@ -111,8 +91,6 @@ h2 {
 }
 
 // 分页器
-
-
 // 定义页码按钮 选中以及当前分页对应页码按钮的样式
 
 @mixin pagination-active {
@@ -156,5 +134,4 @@ h2 {
     }
   }
 }
-
 </style>

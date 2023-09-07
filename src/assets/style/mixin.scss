@@ -120,6 +120,13 @@ other
   @include hor-center;
 }
 
+// 字体大小与行间距等高
+
+@mixin same-fs-lh($font-size) {
+  font-size: $font-size;
+  line-height: $font-size;
+}
+
 // other
 
 @mixin pad-bgi {

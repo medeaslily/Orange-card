@@ -1,7 +1,7 @@
 <template>
-  <div class="table" @click="changeTab">
+  <li class="table" @click="changeTab">
     <span class="f-18">{{ tabText }}</span>
-  </div>
+  </li>
 </template>
 <script>
 export default {

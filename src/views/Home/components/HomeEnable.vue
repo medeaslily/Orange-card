@@ -1,13 +1,13 @@
 <template>
   <div class="enable">
     <div class="enable__cover"></div>
-    <div class="enable__tabs">
+    <ul class="enable__tabs">
       <HomeEnableTable :class="{active: activeTabIdx === idx}"
                        v-for="(item, idx) in tabs"
                        :key="idx"
                        :tab-text="item"
                        @changeTab="changeTab(idx)"></HomeEnableTable>
-    </div>
+    </ul>
     <div class="enable__cards">
       <b class="icon" @click="toPreCard">&#xe7a7;</b>
       <HomeEnableCard v-for="(item, idx) in cards"

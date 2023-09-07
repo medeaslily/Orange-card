@@ -13,8 +13,10 @@ const routes = [
       { path: '/index', component: () => import('@/views/Home') },
       // 关于我们
       { path: '/about', component: () => import('@/views/About') },
-      // 新闻
+      // 新闻主页
       { path: '/news', component: () => import('@/views/News') },
+      // 新闻文章
+      { path: '/article/:id', name: 'article', component: () => import('@/views/Article') },
       // 展示样品
       { path: '/case',component: () => import('@/views/Case') },
       // 支持

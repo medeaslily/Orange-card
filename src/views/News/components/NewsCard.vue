@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <a href="javascript:;">
+  <li class="card"
+      @click="toArticle">
       <el-image class="card__img"
                 :src="imgSrc"
                 :fit="'fill'"></el-image>
@@ -8,30 +8,32 @@
         <p class="card__title">{{ title }}</p>
         <p class="card__time">{{ time }}</p>
       </div>
-    </a>
-  </div>
+  </li>
 </template>
 <script>
 export default {
-  name: 'news-card',
+  name: 'NewsCard',
   props: {
     imgSrc: {type: String},
     title: {type: String},
     time: {type: String}
-  }
+  },
+  methods: {
+    toArticle() {
+      this.$emit('toArticle')
+    }
+  },
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .card {
+  box-sizing: border-box;
   width: 386px;
+  height: 328px;
   background-color: #fff;
   box-shadow: 0px 0px 10px 0px
   rgba(237, 237, 237, 0.7);
-}
-
-.card__text-block {
-  height: 110px;
-  margin-left: 20px;
+  cursor: pointer;
 }
 
 .card__img {
@@ -40,16 +42,18 @@ export default {
   height: 220px;
 }
 
+.card__text-block {
+  padding: 20px;
+}
+
 .card__title {
-  font-size: 16px;
-  line-height: 40px;
-  color: #333;
+  @include single-dots;
+  @include same-fs-lh(16px)
 }
 
 .card__time {
-  padding-top: 26px;
-  font-size: 14px;
-  line-height: 14px;
+  padding-top: 39px;
+  @include same-fs-lh(14px);
   color: #666;
 }
 </style>
