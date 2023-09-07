@@ -40,13 +40,10 @@ export default {
       article: {},
     }
   },
-  computed: {
-  },
   methods: {
     async getArticle() {
       let res = await this.$api.getArticle(this.articleId)
       this.article = res.data
-      console.log(this.article)
     }
   },
 }
