@@ -5,6 +5,7 @@ flex
 单行截取
 绝对定位
 相对定位
+正方形
 other
   pad-bgi
   w1160
@@ -125,6 +126,13 @@ other
 @mixin same-fs-lh($font-size) {
   font-size: $font-size;
   line-height: $font-size;
+}
+
+// 正方形
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
 }
 
 // other
