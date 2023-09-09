@@ -6,16 +6,15 @@
     <div class="news__content">
     <!--  新闻卡列表    -->
       <ul class="news__cards">
-        <NewsCard class="news__card" v-for="(item,id) in newsList"
+        <NewsCard class="news__card"
+                  v-for="(news,id) in newsList"
                   :key="id"
-                  :img-src="item.cover"
-                  :title="item.title"
-                  :time="item.updatedAt"
-                  @toArticle="toArticle(item._id)"></NewsCard>
+                  :card="getCard(news)"
+                  @toArticle="toArticle(news._id)"></NewsCard>
       </ul>
       <!--  分页器   -->
       <el-pagination
-          class="news__pagination flex-box flex-center2x"
+          class="news__pagination"
           layout="prev, pager, next"
           :current-page="currentPage"
           @current-change="currentChange"
@@ -37,11 +36,19 @@ export default {
       pageSize: 9,
       currentPage: 1,
       total: 36,
-      newsList: []
+      newsList: [],
+      newsCardList: []
     }
   },
   mounted() {
     this.getNewsList(this.currentPage)
+  },
+  computed: {
+    getCard() {
+      return (news) => {
+        return {imgSrc: news.cover, title: news.title, time: news.updatedAt}
+      }
+    }
   },
   methods: {
     currentChange(cur) {
@@ -54,6 +61,9 @@ export default {
         pageSize: this.pageSize
       }).then((res) => {
         this.newsList = res.data
+        this.newsCardList = res.data.map((item) => {
+          return  { imgSrc: item.cover, title: item.title, time: item.updataAt }
+        })
         this.total = res.pagination.total
       })
     },
@@ -91,6 +101,10 @@ export default {
 }
 
 // 分页器
+.news__pagination {
+  @include flex-center2x;
+}
+
 // 定义页码按钮 选中以及当前分页对应页码按钮的样式
 
 @mixin pagination-active {

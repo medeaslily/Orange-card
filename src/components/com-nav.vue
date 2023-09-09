@@ -4,7 +4,7 @@
       <router-link to="/index">首页</router-link>
     </li>
     <li class="pull-list">
-      <a class="icon icon-arrow-down ml6" to="/">橙品牌</a>
+      <a class="icon icon-arrow-down" href="/">橙品牌</a>
       <ul class="pull-list-item">
         <li>
           <a href="#">橙品牌</a>
@@ -106,7 +106,7 @@ export default {
 .icon-arrow-down::after {
   position: absolute;
   top: 0;
-  right: -18px;
+  right: -22px;
   transition: .3s;
 }
 

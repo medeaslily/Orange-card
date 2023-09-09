@@ -1,6 +1,6 @@
 <template>
   <div class="slider">
-    <img src="@/assets/img/home/slider-icon.png" alt="icon" width="76" height="70">
+    <div class="slider__icon"></div>
     <h2>橙券，是权益营销方案提供商，为实现品牌-市场-用户的紧密互联提供强有力的智慧支持。</h2>
     <HomeMoreButton></HomeMoreButton>
   </div>
@@ -15,11 +15,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-h2 {
-  font-size: 20px;
-  color: #333;
-}
-
 .slider {
   @include flex;
   justify-content: space-around;
@@ -33,5 +28,16 @@ h2 {
   height: 118px;
   background-color: #fff;
   box-shadow: 0 8px 8px #ccc;
+
+  h2 {
+    font-size: 20px;
+    color: #333;
+  }
+}
+
+.slider__icon {
+  width: 76px;
+  height: 70px;
+  background: url('@/assets/img/home/slider-icon.png') no-repeat center/cover;
 }
 </style>

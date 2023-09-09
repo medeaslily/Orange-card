@@ -17,25 +17,17 @@ export default {
   name: 'com-header',
   watch: {
     $route(to) {
-      if(to.path !== '/index') {
-        this.isIndex = false
-      } else {
-        this.isIndex = true
-      }
+      this.isIndex = to.path === '/index';
     }
   },
   mounted() {
-    if(this.$route.path !== '/index') {
-      this.isIndex = false
-    } else {
-      this.isIndex = true
-    }
+    this.isIndex = this.$route.path === '/index';
   },
   data() {
     return {
       isIndex: true,
-      logo: require('../assets/img/header/logo.png'),
-      logoWhite: require('../assets/img/header/logowhite.png')
+      logo: require('@/assets/img/header/logo.png'),
+      logoWhite: require('@/assets/img/header/logowhite.png')
     }
   },
 }

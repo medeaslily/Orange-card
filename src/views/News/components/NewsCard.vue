@@ -2,11 +2,11 @@
   <li class="card"
       @click="toArticle">
       <el-image class="card__img"
-                :src="imgSrc"
+                :src="card.imgSrc"
                 :fit="'fill'"></el-image>
       <div class="card__text-block">
-        <p class="card__title">{{ title }}</p>
-        <p class="card__time">{{ time }}</p>
+        <p class="card__title">{{ card.title }}</p>
+        <p class="card__time">{{ card.time }}</p>
       </div>
   </li>
 </template>
@@ -14,9 +14,7 @@
 export default {
   name: 'NewsCard',
   props: {
-    imgSrc: {type: String},
-    title: {type: String},
-    time: {type: String}
+    card: {type: Object}
   },
   methods: {
     toArticle() {
@@ -31,7 +29,7 @@ export default {
   width: 386px;
   height: 328px;
   background-color: #fff;
-  box-shadow: 0px 0px 10px 0px
+  box-shadow: 0 0 10px 0
   rgba(237, 237, 237, 0.7);
   cursor: pointer;
 }

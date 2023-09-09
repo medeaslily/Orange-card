@@ -8,11 +8,12 @@
     <!--  入驻流程  -->
     <div class="flow">
       <h3>入驻流程</h3>
+      <!--  示意图   -->
       <ul class="flow__map">
         <li class="flow__map-item"
             v-for="(text, idx) in flowData"
             :key="idx"
-            :style="cssVars(idx)">
+            :style="setBgiVars(idx)">
           <span>{{ text }}</span>
         </li>
       </ul>
@@ -43,10 +44,10 @@ export default {
     }
   },
   computed: {
-    cssVars() {
+    setBgiVars() {
       return (idx) => {
         return {
-          '--coverSrc': `url(${require(`@/assets/img/support/flow/${ this.$tool.padZero(idx) }.png`)})`
+          '--bgi': `url(${require(`@/assets/img/support/flow/${ this.$tool.padZero(idx) }.png`)})`
         }
       }
     }
@@ -162,7 +163,7 @@ h3 {
     bottom: 49px;
     left: -26px;
     @include square(130px);
-    background-image: var(--coverSrc);
+    background-image: var(--bgi);
     @include pad-bgi;
   }
 }

@@ -1,8 +1,9 @@
 <template>
   <div class="card"
-       :class="{active: isActive}" :style="{'order': order}">
+       :class="{active: isActive}"
+       :style="{'order': order}">
     <div class="card__cover"
-         :style="coverStyle"></div>
+         :style="setBgiVar"></div>
     <p class="card__text">{{ card.text }}</p>
   </div>
 </template>
@@ -21,11 +22,9 @@ export default {
       type: Number
     }
   },
-  data() {
-    return {
-      coverStyle: {
-        'background-image': `url(${ this.card.cover })`,
-      }
+  computed: {
+    setBgiVar() {
+      return { '--bgi': `url(${ this.card.cover })` }
     }
   },
 }
@@ -68,6 +67,7 @@ export default {
 
 .card__cover {
   @extend %hor-center;
+  background-image: var(--bgi);
   @include pad-bgi;
   width: 218px;
   height: 55px;

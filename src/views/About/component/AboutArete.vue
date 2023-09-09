@@ -1,6 +1,7 @@
 <template>
   <div class="arete">
-    <p class="arete__title">荣誉资质</p>
+    <h3>荣誉资质</h3>
+    <!-- 荣誉奖章卡片组   -->
     <ul class="arete__cards">
       <AboutCard v-for="(item, idx) in cards"
                  :key="idx"
@@ -77,11 +78,12 @@ export default {
   padding-top: 106px;
   padding-bottom: 161px;
   @include w1200;
-}
 
-.arete__title {
-  font-size: 30px;
-  text-align: center;
+  h3 {
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+  }
 }
 
 .arete__cards {

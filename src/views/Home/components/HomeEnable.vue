@@ -127,6 +127,5 @@ export default {
   border-radius: 50%;
   background-color: #cbccce;
   cursor: pointer;
-
 }
 </style>

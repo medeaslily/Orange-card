@@ -8,7 +8,7 @@
                    indicator-position="none">
         <el-carousel-item v-for="(src, idx) in bannerSrcList"
                           :key="idx"
-                          :style="{ 'background-image': `url(${src})` }">
+                          :style="setBgiVar(src)">
         </el-carousel-item>
       </el-carousel>
       <HomeSlider></HomeSlider>
@@ -37,6 +37,13 @@ export default {
       bannerSrcList: []
     }
   },
+  computed: {
+    setBgiVar() {
+      return (src) => {
+        return { '--bgi': `url(${ src })` }
+      }
+    }
+  },
   mounted() {
     this.getBanners()
   },
@@ -59,9 +66,11 @@ export default {
   @include pos-rel;
 }
 
+// 轮播的元素
 .el-carousel__item {
   width: 100%;
   height: 100%;
+  background-image: var(--bgi);
   @include pad-bgi;
 }
 

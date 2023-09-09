@@ -1,16 +1,14 @@
 <template>
   <footer class="footer">
-    <div class="footer__content flex-box">
+    <div class="footer__content">
       <div class="connect">
-        <div class="clearfix">
-          <div class="connect__icon fl pr6"></div>
-          <p class="connect__phone-number">400-096-0828</p>
-          <p class="connect__phone-des">7*24小时客服为您服务</p>
-        </div>
-        <img class="connect__qc-code pl36 mt14" src="../assets/img/footer/qrcode.png" alt="!" width="159" height="159">
-        <p class="connect__qc-des pl36">微信扫描二维码，关注【橙券】</p>
+        <div class="connect__icon"></div>
+        <p class="connect__phone-number">400-096-0828</p>
+        <p class="connect__phone-des">7*24小时客服为您服务</p>
+        <img class="connect__qc-code" src="@/assets/img/footer/qrcode.png" alt="!" width="159" height="159">
+        <p class="connect__qc-des">微信扫描二维码，关注【橙券】</p>
       </div>
-      <div class="link-box flex-box flex-btw">
+      <div class="link-box">
         <div class="link-box__item">
           <span class="link-box__title">橙品牌</span>
           <div class="link-box__panel">
@@ -59,36 +57,20 @@ export default {
   name: 'com-footer'
 }
 </script>
-<style scoped>
-.pl36 {
-  padding-left: 36px;
-}
-
-.pr6 {
-  padding-right: 6px;
-}
-
-.fl {
-  float: left;
-}
-
-.mt14 {
-  margin-top: 14px;
-}
-
+<style lang="scss" scoped>
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
   height: 384px;
   background-color: #24272d;
 }
 
 .footer__content {
-  box-sizing: border-box;
-  justify-content: space-between;
-  padding-top: 58px;
-  padding-bottom: 18px;
+  @include flex-btw;
+  padding-top: 57px;
+  padding-bottom: 19px;
   width: 1038px;
 }
 
@@ -98,10 +80,13 @@ footer {
 }
 
 .connect__icon {
+  @include float-left;
+  margin-right: 6px;
   overflow: hidden;
   width: 43px;
   height: 43px;
-  background: url('@/assets/img/footer/connect-icon.png') no-repeat left/86%;
+  background: url('@/assets/img/footer/connect-icon.png');
+  @include pad-bgi;
 }
 
 .connect__phone-number {
@@ -116,14 +101,21 @@ footer {
   line-height: 26px;
 }
 
+.connect__qc-code {
+  padding-left: 36px;
+  margin-top: 14px;
+}
+
 .connect__qc-des {
-  padding-top: 16px;
+  padding-top: 15px;
+  padding-left: 36px;
   font-size: 12px;
   color: #cecece;
   line-height: 12px;
 }
 
 .link-box {
+  @include flex-btw;
   width: 654px;
 }
 
@@ -146,7 +138,7 @@ footer {
 .split-line {
   width: 1245px;
   height: 1px;
-  background-image: linear-gradient(to right,#22212f,#4c4f5f 20% 80%,#22212f);
+  background-image: linear-gradient(to right, #22212f, #4c4f5f 20%, #4c4f5f 80%, #22212f);
 }
 
 .footer__copy {

@@ -2,7 +2,7 @@
   <div class="connect">
     <div class="connect__cover"></div>
     <div class="connect__box">
-      <div class="connect__title">联系我们</div>
+      <h3>联系我们</h3>
       <div class="connect__box-item"
            v-for="(item, idx) in boxData"
            :key="idx">
@@ -69,11 +69,12 @@ export default {
   padding-top: 76px;
   padding-left: 94px;
   background-color: #fbfbfb;
-}
 
-.connect__title {
-  @include same-fs-lh(30px);
-  padding-bottom: 56px;
+  h3 {
+    @include same-fs-lh(30px);
+    font-weight: 400;
+    padding-bottom: 56px;
+  }
 }
 
 .connect__box-item {

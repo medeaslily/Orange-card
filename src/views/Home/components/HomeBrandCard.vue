@@ -1,15 +1,15 @@
 <template>
-  <div class="card"
-       :style="{ 'background-image': `url(${ card.coverSrc })` }">
+  <li class="card"
+      :style="setBgiVar(card.coverSrc)">
     <div class="card-mask">
       <div class="card__icon"
-           :style="{ 'background-image': `url(${ card.iconSrc })` }"></div>
+           :style="setBgiVar(card.iconSrc)"></div>
       <p class="card__title">{{ card.title }}</p>
       <p class="card__des">{{ card.des }}</p>
       <HomeMoreButton class="card__button"
-                       :color="'white'"></HomeMoreButton>
+                      :color="'#fff'"></HomeMoreButton>
     </div>
-  </div>
+  </li>
 </template>
 <script>
 import HomeMoreButton from "@/views/Home/components/HomeMoreButton.vue";
@@ -22,6 +22,13 @@ export default {
       type: Object,
     },
   },
+  computed: {
+    setBgiVar() {
+      return (bgi) => {
+        return {'--bgi': `url(${bgi})`}
+      }
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -29,6 +36,8 @@ export default {
   box-sizing: border-box;
   width: 280px;
   height: 400px;
+  background-image: var(--bgi);
+  @include pad-bgi;
   transition: .2s;
 
   &:hover {
@@ -67,6 +76,8 @@ export default {
 }
 
 .card__icon {
+  background-image: var(--bgi);
+  @include pad-bgi;
   margin-top: 108px;
   width: 90px;
   height: 90px;

@@ -1,5 +1,5 @@
 <template>
-  <a class="button">了解更多</a>
+  <a class="button" :style="setCssVar">了解更多</a>
 </template>
 <script>
 export default {
@@ -7,34 +7,30 @@ export default {
   props: {
     color: {
       type: String,
-      default: ''
+      default: '#ff7200'
     }
   },
-  mounted() {
-    this.switchStyle()
-  },
-  methods: {
-    switchStyle () {
-      // 支持修改的样式
-      let supportColor = ['white']
-
-      if (supportColor.includes(this.color)) {
-        this.$el.classList.add(`button-${this.color}`)
-      }
+  computed: {
+    setCssVar() {
+      return { '--color': this.color }
     }
   },
 }
 </script>
 <style lang="scss" scoped>
-.button {
+@mixin setButton($color: $theme-color) {
   display: block;
   width: 150px;
-  font-size: 16px;
   line-height: 40px;
+  font-size: 16px;
   text-align: center;
-  border: 1px solid $theme-color;
+  border: 1px solid $color;
   border-radius: 20px;
-  color: $theme-color;
+  color: $color;
+}
+
+.button {
+  @include setButton(var(--color))
 }
 
 .button::after {
@@ -47,12 +43,5 @@ export default {
 
 .button:hover.button::after {
   transform: translateX(2px);
-}
-
-// 修饰样式
-
-.button-white {
-  border: 1px solid #fff;
-  color: #fff;
 }
 </style>
