@@ -1,9 +1,9 @@
 <template>
   <div class="card"
        :class="{active: isActive}"
-       :style="{'order': order}">
+       :style="setOrMarVar">
     <div class="card__cover"
-         :style="setBgiVar"></div>
+         :style="setBgiMlVar"></div>
     <p class="card__text">{{ card.text }}</p>
   </div>
 </template>
@@ -23,20 +23,34 @@ export default {
     }
   },
   computed: {
-    setBgiVar() {
-      return { '--bgi': `url(${ this.card.cover })` }
+    // 设置 card__cover 的bgi,margin-left值
+    setBgiMlVar() {
+      return {
+        '--bgi': `url(${this.card.cover})`,
+        '--ml': this.order === 1 ? '10%' : this.order === 2 ? '45%' : 'auto'
+      }
+    },
+    //  设置 card 的order,margin值
+    setOrMarVar() {
+      return {
+        '--order': this.order,
+        '--mr': this.order === 1 ? '30px' : '0px',
+        '--ml': this.order === 2 ? '30px' : '0px'
+      }
     }
   },
 }
 </script>
 <style lang="scss" scoped>
 .card {
+  order: var(--order);
   padding-top: 85px;
   padding-bottom: 85px;
+  margin-left: var(--ml);
+  margin-right: var(--mr);
   width: 500px;
   background-color: #fff;
-  box-shadow: 0px -1px 21px 0px
-  rgba(114, 113, 113, 0.3);
+  box-shadow: 0px -1px 21px 0px rgba(114, 113, 113, 0.3);
 
   &.active {
     @include pos-abs;
@@ -66,6 +80,7 @@ export default {
 }
 
 .card__cover {
+  margin-left: var(--ml);
   @extend %hor-center;
   background-image: var(--bgi);
   @include pad-bgi;
