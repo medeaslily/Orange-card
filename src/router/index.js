@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store';
 
 Vue.use(VueRouter)
 
@@ -35,11 +36,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // 动态设置导航栏active样式
-  if (to.path === '/index') {
-    Vue.prototype.$bus.$emit('setIndex')
-  } else {
-    Vue.prototype.$bus.$emit('setIndex', false)
-  }
+  store.dispatch('CHANGE_INDEX', to.path)
   next()
 })
 

@@ -5,7 +5,7 @@
       <!--   面包屑   -->
       <el-breadcrumb separator=">">
         <el-breadcrumb-item :to="{ path: '/news' }">新闻动态</el-breadcrumb-item>
-        <el-breadcrumb-item :to="{ name: '/' }">{{ article.title }}</el-breadcrumb-item>
+        <el-breadcrumb-item>{{ article.title }}</el-breadcrumb-item>
       </el-breadcrumb>
       <h3 class="article__title">{{ article.title }}</h3>
       <p class="article__time">{{ time }}</p>

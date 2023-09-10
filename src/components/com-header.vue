@@ -13,16 +13,15 @@
   </header>
 </template>
 <script>
+import {mapState} from "vuex";
+
 export default {
   name: 'com-header',
-  mounted() {
-    this.$bus.$on("setIndex", (state = true) => {
-      this.isIndex = state
-    });
+  computed: {
+    ...mapState(['isIndex'])
   },
   data() {
     return {
-      isIndex: true,
       logo: require('@/assets/img/header/logo.png'),
       logoWhite: require('@/assets/img/header/logowhite.png')
     }
