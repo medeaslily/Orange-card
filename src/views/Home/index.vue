@@ -2,33 +2,28 @@
   <div class="home">
     <!--   顶部横幅   -->
     <div class="home__banner">
-      <el-carousel height="680px"
-                   :loop="true"
-                   :interval="2000"
-                   indicator-position="none">
-        <el-carousel-item v-for="(src, idx) in bannerSrcList"
-                          :key="idx"
-                          :style="setBgiVar(src)">
-        </el-carousel-item>
-      </el-carousel>
+            <el-carousel height="680px">
+              <el-carousel-item v-for="(src, idx) in bannerSrcList"
+                                :key="idx"
+                                :style="setBgiVar(src)">
+              </el-carousel-item>
+            </el-carousel>
       <HomeSlider></HomeSlider>
     </div>
     <!--  主页主体  -->
-      <!--  橙品牌    -->
-      <HomeBrand></HomeBrand>
-      <!--   橙科技   -->
-      <HomeEnable></HomeEnable>
-      <!--   底部横幅   -->
-      <HomeBottomBanner></HomeBottomBanner>
-    </div>
+    <!--  橙品牌    -->
+    <HomeBrand></HomeBrand>
+    <!--   橙科技   -->
+    <HomeEnable></HomeEnable>
+    <!--   底部横幅   -->
+    <HomeBottomBanner></HomeBottomBanner>
+  </div>
 </template>
 <script>
-
 import HomeSlider from "@/views/Home/components/HomeSlider.vue";
 import HomeBrand from "@/views/Home/components/HomeBrand.vue";
 import HomeEnable from "@/views/Home/components/HomeEnable.vue";
 import HomeBottomBanner from "@/views/Home/components/HomeBottomBanner.vue";
-
 export default {
   name: 'home-page',
   components: {HomeBottomBanner, HomeEnable, HomeBrand, HomeSlider},
@@ -40,7 +35,7 @@ export default {
   computed: {
     setBgiVar() {
       return (src) => {
-        return { '--bgi': `url(${ src })` }
+        return {'--bgi': `url(${src})`}
       }
     }
   },
@@ -51,10 +46,6 @@ export default {
     getBanners() {
       this.$req('/indexbanners', 'get').then((res) => {
         this.bannerSrcList = res.data.map((item) => item.carousel)
-        // 当banner数量为二，翻倍banner，使得组件el-carousel能够一直向右循环
-        if (this.bannerSrcList.length === 2) {
-          this.bannerSrcList = [...this.bannerSrcList, ...this.bannerSrcList]
-        }
       })
     }
   },
@@ -74,7 +65,15 @@ export default {
   @include pad-bgi;
 }
 
-::v-deep .el-carousel__arrow {
-  display: none;
+::v-deep {
+  // 左右箭头指示器
+  .el-carousel__arrow {
+    display: none;
+  }
+
+  // 底部横条指示器
+  .el-carousel__indicators--horizontal {
+    bottom: 84px;
+  }
 }
 </style>

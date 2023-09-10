@@ -81,7 +81,7 @@ export default {
 
 .special_a {
   a {
-    color: #c8c8c8;
+    color: #999;
 
     &:hover:not(.router-link-active,.pull-list a) {
       color: #fff;

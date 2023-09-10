@@ -15,13 +15,10 @@
 <script>
 export default {
   name: 'com-header',
-  watch: {
-    $route(to) {
-      this.isIndex = to.path === '/index';
-    }
-  },
   mounted() {
-    this.isIndex = this.$route.path === '/index';
+    this.$bus.$on("setIndex", (state = true) => {
+      this.isIndex = state
+    });
   },
   data() {
     return {
